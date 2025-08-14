@@ -1132,8 +1132,9 @@ static void spkr_calibrate_wait()
     pthread_mutex_unlock(&handle.cal_wait_cond_mutex);
 }
 
-static void* spkr_calibration_thread()
+static void* spkr_calibration_thread(void *arg)
 {
+    (void)arg;
     unsigned long sec = 0;
     int t0;
     int t0_spk_1 = 0;
@@ -1905,8 +1906,9 @@ static int get_spkr_prot_v_vali_param(int cal_fd __unused, int *status __unused,
 }
 #endif
 
-static void* spkr_v_vali_thread()
+static void* spkr_v_vali_thread(void *arg)
 {
+    (void)arg;
     int ret = 0;
     struct audio_device *adev = handle.adev_handle;
     handle.v_vali_threadid = pthread_self();
