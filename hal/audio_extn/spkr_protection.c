@@ -1132,9 +1132,8 @@ static void spkr_calibrate_wait()
     pthread_mutex_unlock(&handle.cal_wait_cond_mutex);
 }
 
-static void* spkr_calibration_thread(void *arg)
+static void* spkr_calibration_thread()
 {
-    (void)arg;
     unsigned long sec = 0;
     int t0;
     int t0_spk_1 = 0;
